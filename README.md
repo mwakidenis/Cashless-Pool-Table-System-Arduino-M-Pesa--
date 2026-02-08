@@ -105,7 +105,9 @@ M-Pesa credentials are stored and used **only on the backend server**.
 if (unlockApproved) {
   Serial.println("UNLOCK");
 }
+
 🔌 Arduino Responsibilities
+
 Listen for serial commands from ESP32
 Control relay and locking mechanism
 Unlock table for one game
@@ -118,7 +120,9 @@ if (command == "UNLOCK") {
   waitForGameEnd();
   lockTable();
 }
+
 ⏱ Game End Detection
+
 A game can be considered complete using one of the following:
 Fixed timer duration
 Ball return sensor
@@ -126,11 +130,13 @@ Manual reset button
 Inactivity timeout
 
 🔐 Security Model
+
 The backend server is the single authority for unlocking the pool table
 The ESP32 cannot unlock the table independently
 Each M-Pesa transaction ID is validated and used once
 All backend communication is performed over HTTPS
 The ESP32 accepts commands only from the trusted backend
+
 🛠 Installation Steps
 
 Install solenoid or motor lock under the pool table
@@ -139,6 +145,7 @@ Connect ESP32 to Arduino using UART
 Deploy backend server and configure Daraja credentials
 Flash firmware to ESP32 and Arduino
 Test payment, unlock, and automatic relock
+
 📊 Optional Enhancements
 
 QR code payment initiation
@@ -147,6 +154,7 @@ Admin dashboard
 Usage analytics
 Multiple pool table support
 SMS payment confirmation
+
 ✅ Advantages
 
 Eliminates coin theft
